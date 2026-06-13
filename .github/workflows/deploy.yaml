@@ -2,28 +2,25 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # 如果你的主分支叫 master，记得改成 master
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 核心修正：在最顶层注入环境变量，提前向 GitHub 声明我们自愿启用 Node.js 24 环境
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository
-        # 💡 修正 1：将 checkout 升级到支持新环境的 @v5 / @v6（按需）
-        uses: actions/checkout@v5 
+        uses: actions/checkout@v6
 
       - name: Install, build, and upload your site
-        # 💡 修正 2：astro 官方维护的 action，内部也已同步适配
-        uses: withastro/action@v3
+        uses: withastro/action@v6
+        with:
+          node-version: 24
 
   deploy:
     needs: build
@@ -34,4 +31,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

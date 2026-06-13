@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Time Vapour mark</title>
+  <desc id="desc">A black circular Time Vapour mark with white TV initials.</desc>
+  <rect width="240" height="240" rx="120" fill="#1A1A1A"/>
+  <text x="120" y="144" text-anchor="middle" fill="#F5F4F0" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="700" letter-spacing="0">TV</text>
+</svg>

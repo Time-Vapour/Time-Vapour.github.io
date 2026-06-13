@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { formatDate, getPostPath, getSortedPosts } from "../utils/posts";
+
+const posts = await getSortedPosts();
+---
+
+<BaseLayout
+  title="文章归档"
+  description="Time Vapour Journal 的完整文章归档，收录 AI 技术、随笔与艺术作品。"
+  bodyClass="archive-page"
+>
+  <main class="content-section archive-layout">
+    <div class="section-heading">
+      <p class="kicker">Archive</p>
+      <h1>文章归档</h1>
+    </div>
+
+    <div class="post-list">
+      {posts.map((post) => (
+        <article class="post-card">
+          <a href={getPostPath(post.id)}>
+            <time class="post-date" datetime={formatDate(post.data.date)}>
+              {formatDate(post.data.date)}
+            </time>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </a>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

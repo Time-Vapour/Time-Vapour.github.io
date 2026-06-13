@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../site";
+import { formatDate, getPostPath, getSortedPosts, getTagPath } from "../utils/posts";
+
+const posts = await getSortedPosts();
+const featuredTags = Array.from(new Set(posts.flatMap((post) => post.data.tags))).slice(0, 8);
+---
+
+<BaseLayout
+  title="Time Vapour Journal"
+  description={site.description}
+  bodyClass="home-page"
+>
+  <main>
+    <section class="hero-section" aria-labelledby="hero-title">
+      <p class="kicker">Personal Notes</p>
+      <h1 id="hero-title">在慢速的文字里，记录高速变化的世界。</h1>
+      <p class="hero-copy">
+        Time Vapour 是一名个人研究者与观察者。这里记录 AI 技术、小说、音乐编曲、随笔与艺术作品，用接近纸本杂志的节奏，保存跨领域的思考与创作。
+      </p>
+      <div class="hero-meta" aria-label="博客摘要">
+        <span>Researcher</span>
+        <span>Observer</span>
+        <span>AI / Fiction / Music</span>
+        <a href={site.rssPath}>RSS</a>
+        <a href="#" data-email-link data-user={site.emailUser} data-domain={site.emailDomain}>Email</a>
+      </div>
+    </section>
+
+    <section id="archive" class="content-section" aria-labelledby="archive-title">
+      <div class="section-heading">
+        <p class="kicker">Archive</p>
+        <h2 id="archive-title">最新文章</h2>
+      </div>
+
+      <div class="post-list">
+        {posts.map((post) => (
+          <article class="post-card">
+            <a href={getPostPath(post.id)}>
+              <time class="post-date" datetime={formatDate(post.data.date)}>
+                {formatDate(post.data.date)}
+              </time>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <span class="card-tags">{post.data.tags.slice(0, 3).join(" / ")}</span>
+              )}
+              <span class="read-more">阅读全文</span>
+            </a>
+          </article>
+        ))}
+      </div>
+      <p class="section-link"><a href="/archive/">查看完整归档</a></p>
+      {featuredTags.length > 0 && (
+        <div class="tag-cloud" aria-label="文章标签">
+          {featuredTags.map((tag) => <a href={getTagPath(tag)}>{tag}</a>)}
+        </div>
+      )}
+    </section>
+
+    <section class="subscribe-section" aria-labelledby="subscribe-title">
+      <p class="kicker">Subscribe</p>
+      <h2 id="subscribe-title">持续收到新文章</h2>
+      <p>
+        欢迎通过 RSS 订阅技术 blog、随笔与作品更新；也可以通过 email 发送反馈、交流想法或讨论合作。
+      </p>
+      <div class="subscribe-actions">
+        <a href={site.rssPath}>订阅 RSS</a>
+        <a href="#" data-email-link data-user={site.emailUser} data-domain={site.emailDomain}>写邮件</a>
+      </div>
+    </section>
+
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <img src="/assets/images/author-mark.svg" alt="Time Vapour 的个人标识" width="120" height="120">
+      <div>
+        <p class="kicker">About</p>
+        <h2 id="about-title">关于 Time Vapour</h2>
+        <p>
+          Time Vapour 是一名个人研究者，也是观察者。兴趣横跨 AI 技术、小说与音乐编曲；这个博客用于记录日常的技术 blog、随笔、艺术作品，以及那些还在成形中的问题意识。
+        </p>
+      </div>
+    </section>
+
+    <section class="copyright-section" aria-labelledby="copyright-title">
+      <p class="kicker">Copyright</p>
+      <p>{site.copyright}</p>
+    </section>
+  </main>
+</BaseLayout>

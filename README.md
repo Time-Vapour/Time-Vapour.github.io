@@ -1,4 +1,4 @@
-# Time Vapour Journal
+# Time Vapour Blog
 
 My personal journal-like blogs
 

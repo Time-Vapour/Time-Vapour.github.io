@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Time Vapour Journal social preview</title>
-  <desc id="desc">A modern retro editorial preview image for Time Vapour Journal, a research and creative notebook.</desc>
+  <title id="title">Time Vapour Blog social preview</title>
+  <desc id="desc">A modern retro editorial preview image for Time Vapour Blog, a research and creative notebook.</desc>
   <rect width="1200" height="630" fill="#F5F4F0"/>
   <path d="M0 0h1200v630H0z" fill="#F5F4F0"/>
   <path d="M72 72h1056v486H72z" fill="none" stroke="#D9D3C7" stroke-width="2"/>
@@ -8,6 +8,6 @@
   <text x="986" y="171" text-anchor="middle" fill="#F5F4F0" font-family="Georgia, serif" font-size="30" font-weight="700">TV</text>
   <text x="120" y="166" fill="#8B0000" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">PERSONAL NOTES</text>
   <text x="120" y="294" fill="#1A1A1A" font-family="Georgia, serif" font-size="76" font-weight="700">Time Vapour</text>
-  <text x="120" y="382" fill="#1A1A1A" font-family="Georgia, serif" font-size="76" font-weight="700">Journal</text>
+  <text x="120" y="382" fill="#1A1A1A" font-family="Georgia, serif" font-size="76" font-weight="700">Blog</text>
   <text x="120" y="470" fill="#6F6A61" font-family="Georgia, serif" font-size="30">Research notes on AI, fiction, music, and art.</text>
 </svg>

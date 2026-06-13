@@ -1,5 +1,5 @@
 export const site = {
-  name: "Time Vapour Journal",
+  name: "Time Vapour Blog",
   description: "Time Vapour 的个人研究与创作记录，涵盖 AI 技术、小说、音乐编曲、随笔与艺术作品。",
   author: "Time Vapour",
   emailUser: "arktimevapour",

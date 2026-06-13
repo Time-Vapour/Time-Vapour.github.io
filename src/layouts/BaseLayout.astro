@@ -88,7 +88,7 @@ const imageUrl = new URL(image, Astro.site).toString();
     <slot />
 
     <footer class="site-footer">
-      <p>© 2026 {site.name}. Research, notes, and works by {site.author}.</p>
+      <p>© 2026 {site.name}. Research, notes, and works by {site.author}. All rights reserved.</p>
       <div class="footer-links" aria-label="订阅和联系">
         <a href={site.rssPath}>RSS</a>
         <a href="#" data-email-link data-user={site.emailUser} data-domain={site.emailDomain}>Email</a>
